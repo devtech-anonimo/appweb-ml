@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Resultado da consulta preditiva</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+
+
+
+    </style>
+  </head>
+  <body>
+    
+<h1>Olá {{nome}} {{sobrenome}}, o resultado da sua consulta preditiva:</h1>
+
+<h2>Ressaltamos que o resultado do exame não é um diagnóstico definitivo.
+  <br>O modelo de machine learning apresenta 73por cento de acurácia.
+</h2>
+
+<p>Seu resultado para previsão de doença cardíaca é: {{resultado}} <br></p>
+
+{% if imc < 18.5 %}
+  <p>Seu IMC é de {{ imc }} e está abaixo do normal.</p>
+{% elif imc >= 18.5 and imc < 25 %}
+  <p>Seu IMC é de {{ imc }} e está normal.</p>
+{% elif imc >= 25 and imc < 30 %}
+  <p>Seu IMC é de {{ imc }} e está acima do normal.</p>
+{% else %}
+  <p>Seu IMC é de {{ imc }} e está muito acima do normal.</p>
+{% endif %}
+
+<p>Independente do resultado, sugerimos que você se consulte regularmente com o seu médico.</p>
+<p>Uma vida saudável começa com uma alimentação saudável, atividades físicas regulares, evite consumo de bebidas alcoólicas e de cigarros.</p>
+
+  </body>
+</html>

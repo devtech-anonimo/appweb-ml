@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Resultado da consulta preditiva</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      p{
+        font-family: Helvetica;
+        font-size: 14px;
+        color: black;
+      }
+      #title{
+        font-size: 16px;
+      }
+
+      #alert{
+        font-size: 16;
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    
+    <h1></h1>
+    <p id="title">Olá {{name}} {{lastname}}, </p>
+    <br>
+    <p id="alert">Ressaltamos que o resultado dessa consulta não é um diagnóstico definitivo.
+      O modelo de machine learning apresenta 73 por cento de acurácia.
+    </p>
+    <br>
+    <p>Seu resultado para previsão de doença cardíaca é:<br>
+      <strong>{{resultado}}</strong><br></p>
+    <br>
+    <br>
+    <p>De acordo com a Organização Mundial da Saúde, o IMC (peso /(altura^2)) entre 18 a 25 representa a faixa de peso adequada e 
+       o menor risco para o desenvolvimento de algumas doenças. </p>
+
+    {% if imc < 18 %}
+      <p><strong>Seu IMC é de {{ imc }} e está abaixo do recomendado.</strong></p>
+      <p> </p>
+    {% elif imc >= 18 and imc < 25 %}
+      <p><strong>Seu IMC é de {{ imc }} e está normal.</strong></p>
+      <p> </p>
+    {% elif imc >= 25 and imc < 30 %}
+      <p><strong>Seu IMC é de {{ imc }} e está acima do recomendado</strong></p>
+      <p> </p>
+    {% else %}
+      <p><strong>Seu IMC é de {{ imc }} e está muito acima do recomendado.</strong></p>
+      <p> </p>
+    {% endif %}
+    <br>
+    <p>Independente do resultado, sugerimos que você se consulte regularmente com o seu médico.</p>
+    <p>Uma vida saudável começa com uma alimentação saudável, atividades físicas regulares, evite consumo de bebidas alcoólicas e de cigarros.</p>
+
+  </body>
+</html>
